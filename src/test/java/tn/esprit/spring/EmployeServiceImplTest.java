@@ -37,8 +37,7 @@ public class EmployeServiceImplTest {
 	@Test
 	public void testGetEmployePrenomById() {
 		try {
-			int idE = employeS
-					.ajouterEmploye(new Employe("Mehdy", "benromdhane", "mehdy.benromdhane@spring.tn", true, Role.TECHNICIEN));
+			int idE = employeS.ajouterEmploye(new Employe("Mehdy", "benromdhane", "mehdy.benromdhane@spring.tn", true, Role.TECHNICIEN));
 			String prenomEmp = employeS.getEmployePrenomById(idE);
 			l.info("------> Prenom de lemploye est : " + prenomEmp);
 			assertThat(prenomEmp).isEqualTo("benromdhane");
@@ -53,8 +52,7 @@ public class EmployeServiceImplTest {
 	@Test
 	public void testAjouterEmploye() {
 		try {
-			int id = employeS
-					.ajouterEmploye(new Employe("Mehdy", "benromdhane", "mehdy.benromdhane@spring.tn", true, Role.INGENIEUR));
+			int id = employeS.ajouterEmploye(new Employe("Mehdy", "benromdhane", "mehdy.benromdhane@spring.tn", true, Role.INGENIEUR));
 
 			assertThat(id).isPositive();
 			l.info("Employe added successfully!");
