@@ -28,6 +28,8 @@ public class ControllerEmployeImpl  {
 
 	@Autowired
 	IEmployeService employeService;
+	@Autowired
+	Employe employe;
 
 	private String login; 
 	private String password; 
@@ -96,12 +98,12 @@ public class ControllerEmployeImpl  {
 		if (authenticatedUser==null || !loggedIn) return url;
 
 
-		this.setPrenom(empl.getPrenom());
-		this.setNom(empl.getNom());
-		this.setActif(empl.isActif()); 
-		this.setEmail(empl.getEmail());
-		this.setRole(empl.getRole());
-		this.setPassword(empl.getPassword());
+		employe.setPrenom(empl.getPrenom());
+		employe.setNom(empl.getNom());
+		employe.setActif(empl.isActif()); 
+		employe.setEmail(empl.getEmail());
+		employe.setRole(empl.getRole());
+		employe.setPassword(empl.getPassword());
 		this.setEmployeIdToBeUpdated(empl.getId());
 
 		return navigateTo; 
@@ -244,48 +246,9 @@ public class ControllerEmployeImpl  {
 		return employeService.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
 
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 
 
-
-
-	public boolean isActif() {
-		return actif;
-	}
-
-	public void setActif(boolean actif) {
-		this.actif = actif;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
 
 	public List<Employe> getEmployes() {
 		employes = employeService.getAllEmployes(); 
