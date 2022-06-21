@@ -1,4 +1,4 @@
-FROM java:8
-EXPOSE 8089
-ADD target/timesheet-0.0.1-SNAPSHOT.jar timesheet-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "/timesheet-0.0.1-SNAPSHOT.jar" ]
+FROM adoptopenjdk/openjdk11:latest
+ARG JAR_FILE=target/GesF-1.0.jar
+COPY ${JAR_FILE} GesF-1.0.jar
+ENTRYPOINT ["java","-jar","/GesF-1.0.jar"]
